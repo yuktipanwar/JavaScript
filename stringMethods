@@ -1,0 +1,87 @@
+const displayMessage= "I am learning JavaScript";
+
+const index= 29;
+const char= displayMessage.charAt(index);
+
+//console.log(char);
+
+//ASCII
+const asciiCode = displayMessage.charCodeAt(index);
+console.log(`The ascii code of ${char} is ${asciiCode}`);
+
+/**
+ *indexOf method
+ */
+
+
+
+// function findCharacter (text, char){
+
+//     const index = text.indexOf(char);
+
+//     if(index ===-1){
+//         return "Character not found";
+//     }else{
+//         return "Character found in string!";
+//     }
+// }
+
+// const result = findCharacter("I am leanring JavaScript", "I");
+// console.log(result);
+
+const findChar = (text, char) => text.indexof(char) === -1? "Char not found" : "Char found!";
+
+const reult = findChar("I am a Sofware Developer");
+console.log(result);
+
+/**
+ * includes()
+ * 
+ */
+
+const message = "I love coding in JavaScript";
+const vowels = "aeiouAEIOU";
+let flag = false;
+
+for(let char of displayMessage){
+    if(vowels.includes(char)){
+        flag = true;
+        break;
+    }else{
+        flag = false;
+    }
+}
+
+if(flag){
+    console.log("String has vowels!");
+}else{
+    console.log("String doesn't have vowels!");
+}
+
+
+/**
+ * tolowercase() & toUpperCase()
+ */
+
+console.log(message.toLowerCase());
+
+console.log(message); // originlity of the messgae is retained
+
+console.log(message.toUpperCase());
+
+/**
+ * subString()
+ */
+
+const userName= "Yukti Singh Panwar";
+
+const subString = userName.substring(0,10);
+
+console.log(subString+ "...");
+
+/**
+ * String Trim
+ */
+
+const text = "                   Hola! I love coding                                   ";
+console.log(text.trim().substring(0,6)+ "...");
