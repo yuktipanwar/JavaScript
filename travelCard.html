@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title>Creating element with JS</title>
+        <style>
+
+            #parent-container{
+                display: flex;
+                flex-direction: row;
+            }
+
+            .card-container {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                margin: 10px;
+                padding-bottom: 5px;
+
+            }
+
+            @media only screen and (max-width: 600px) {
+                #parent-container{
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="parent-container">
+            <div class="card-container">
+                <img class="image" src="https://wttc.org/DesktopModules/MVC/NewsArticleList/images/141_20201013185512_Consumer%20Survey%20Finds%2070%20Percent%20of%20Travelers%20plan%20to%20Holiday%20in%202021.jpg" alt="travel-card" />
+                <span> The jouney of a thousand miles begins with a single step</span>
+            </div>
+        </div>
+
+        <script src="dynamicTravelCard.js"></script>
+    </body>
+</html>
