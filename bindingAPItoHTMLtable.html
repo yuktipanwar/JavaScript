@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Option From API</title>
+        <style>
+            table, th, td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+
+        <select id="select">
+            <option value = "-1">Select dog breeds</option>
+        </select>
+
+
+        <!--Table-->
+
+        <table>
+            <thead>
+                <tr>
+                    <th bgcolor="darkgrey">Dog Breeds</th>
+                    <th bgcolor="darkgrey" >Sub Breeds</th>
+                </tr>
+                
+            </thead>
+            <tbody id="data-output">
+                    
+            </tbody>
+        </table>
+
+        <!--Table-->
+
+        <script>
+
+
+        fetch("https://dog.ceo/api/breeds/list/all")
+       .then(response => {
+        
+        return response.json();
+       })
+        .then(data =>{
+            var obj = data.message;
+            var objArr= Object.keys(obj);   //fetching keys
+            var objVal= Object.values(obj);
+            console.log(objVal);
+
+            var select = document.getElementById("select")  //binding drop down
+            let placeholder = document.querySelector("#data-output");  //binding table
+
+            let rows="";
+               
+           
+            for(let i=0; i < objArr.length; i++){
+
+                //select
+                console.log(objArr[i]);
+                var option = document.createElement("OPTION"),
+                txt = document.createTextNode(objArr[i]);
+                option.appendChild(txt);
+                option.setAttribute("value", objArr[i]);
+                select.insertBefore(option, select.lastChild);
+                //select
+
+                
+
+                //table
+                rows +=`
+                        <tr>
+                            <td> ${objArr[i]} </td>
+                            <td> ${objVal[i]}</td>
+                        </tr>`;
+
+                //table
+
+                
+            }
+            placeholder.innerHTML=rows;
+            
+        })
+        .catch(error => console.log(error))
+
+        </script>
+    </body>
+
+
+</html>
